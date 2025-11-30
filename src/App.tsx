@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 // import your screens
 import Dashboard from './screens/Dashboard';
 import Stores from './screens/Stores';
+import Help from './screens/Help';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('Dashboard');
@@ -15,6 +16,8 @@ const App = () => {
         return <Dashboard />;
       case 'Stores':
         return <Stores />;
+      case 'Help':
+        return <Help />;
       default:
         return <Dashboard />;
     }
@@ -34,6 +37,17 @@ const App = () => {
             }
           >
             Dashboard
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setActiveTab('Help')}
+          style={styles.tab}
+        >
+          <Text
+            style={activeTab === 'Help' ? styles.activeTabText : styles.tabText}
+          >
+            Help
           </Text>
         </TouchableOpacity>
 
